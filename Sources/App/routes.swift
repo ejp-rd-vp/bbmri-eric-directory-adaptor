@@ -1,20 +1,13 @@
 import Vapor
+import MolgenisClient
 
-/// Register your application's routes here.
 public func routes(_ router: Router) throws {
-    // Basic "It works" example
-    router.get { req in
-        return "It works!"
-    }
-    
-    // Basic "Hello, world!" example
-    router.get("hello") { req in
-        return "Hello, world!"
-    }
-
-    // Example of configuring a controller
-    let todoController = TodoController()
-    router.get("todos", use: todoController.index)
-    router.post("todos", use: todoController.create)
-    router.delete("todos", Todo.parameter, use: todoController.delete)
+    let catalog = Environment.get("directoryURL") ?? "https://directory.bbmri-eric.eu/"
+    guard let url = URL(string: catalog) else { fatalError("Failed to configure remote endpoint. Set directoryURL.")}
+    let local = Environment.get("localURL") ?? "http://localhost:8080/"
+    guard let localURL = URL(string: local) else { fatalError("Failed to configure local endpoint. Set localURL.")}
+    guard let molgenis = MolgenisClient(baseURL: url) else { fatalError("Failed to create MolgenisClient, verify directoryURL")}
+    let controller = DCATController(client: molgenis, directoryURL: url, localURL: localURL)
+    router.get("/dataset", String.parameter, use: controller.dataset)
+    router.get("/catalog", use: controller.catalog)
 }

@@ -8,7 +8,7 @@
 import Foundation
 import Vapor
 import MolgenisClient
-import Combine
+import OpenCombine
 
 class DCATController {
     func catalog(_ req: Request) throws -> Vapor.Future<Catalog> {

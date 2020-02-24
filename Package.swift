@@ -10,10 +10,11 @@ let package = Package(
     dependencies: [
         // 💧 A server-side Swift web framework.
         .package(url: "https://github.com/vapor/vapor.git", from: "3.0.0"),
-        .package(url: "https://github.com/esthervanenckevort/MolgenisClientSwift.git", .branch("master"))
+        .package(url: "https://github.com/esthervanenckevort/MolgenisClientSwift.git", .branch("master")),
+        .package(url: "https://github.com/broadwaylamb/OpenCombine.git", from: "0.8.0")
     ],
     targets: [
-        .target(name: "App", dependencies: ["Vapor", "MolgenisClient"]),
+        .target(name: "App", dependencies: ["Vapor", "MolgenisClient", "OpenCombine"]),
         .target(name: "Run", dependencies: ["App"]),
         .testTarget(name: "AppTests", dependencies: ["App"])
     ]

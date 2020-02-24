@@ -39,9 +39,20 @@ class DCATController {
             (collection) in
             let id = self.directoryURL.appendingPathComponent("/api/v2/eu_bbmri_eric_collections").appendingPathComponent(collection.id)
             var themes = [Theme]()
-            let publisher = Publisher(name: collection.biobank._label, location: <#T##Location#>)
-            let numberOfPatiens = collection.
-            let dataset = Dataset(id: url, name: collection.name, theme: themes, publisher: <#T##Publisher#>, numberOfPatients: <#T##Int#>)
+            for diagnosis in collection.diagnosisAvailable {
+                if diagnosis.id.hasPrefix("urn:miriam:icd"), let
+                    icd = diagnosis.id.split(separator: ":").last,
+                    let url = URL(string: "http://identifiers.org/icd/\(icd)") {
+                    let theme = Theme(id: url)
+                    themes.append(theme)
+                }
+                
+            }
+            let location = Location(city: "", country: collection.country.id)
+            let publisher = Publisher(name: collection.biobank.name, location: location)
+            let numberOfPatients = collection.numberOfDonors ?? 0
+            let dataset = Dataset(id: id, name: collection.name, theme: themes, publisher: publisher, numberOfPatients: numberOfPatients)
+            promise.succeed(result: dataset)
         })
         return promise.futureResult
     }

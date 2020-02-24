@@ -16,6 +16,12 @@ struct BiobankCollection: Entity {
     
     let id: String
     let name: String
-    let diagnosis_available: [Diagnosis]
+    let diagnosisAvailable: [Diagnosis]
     let biobank: BiobankOrganisation
+    let country: Country
+    let numberOfDonors: Int?
+    
+    private enum CodingKeys: String, CodingKey {
+        case id, name, diagnosisAvailable = "diagnosis_available", biobank, country, numberOfDonors = "number_of_donors"
+    }
 }

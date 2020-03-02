@@ -8,7 +8,7 @@
 import Foundation
 import MolgenisClient
 
-struct BiobankOrganisation: Entity {
+struct BiobankOrganisation: EntityResponse {
     static var _entityName: String = "eu_bbmri_eric_biobanks"
     
     var _id: String { id }

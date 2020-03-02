@@ -8,7 +8,7 @@
 import Foundation
 import MolgenisClient
 
-struct Diagnosis: Entity {
+struct Diagnosis: EntityResponse {
     static var _entityName: String = "eu_bbmri_eric_disease_types"
     var _id: String { id }
     var _label: String { id }

@@ -16,7 +16,7 @@ class DCATController {
         var datasets = [URL]()
         let location = Location(city: "Graz", country: "AT")
         let publisher = Publisher(name: "BBMRI-ERIC", location: location)
-        client.get(with: Subscribers.Sink<BiobankCollection, Error>(receiveCompletion: {  (completion) in
+        let sink = AnySubscriber(Subscribers.Sink<BiobankCollection, Error>(receiveCompletion: {  (completion) in
             switch completion {
             case .failure(let error):
                 promise.fail(error: error)
@@ -28,6 +28,7 @@ class DCATController {
             let url = self.localURL.appendingPathComponent("dataset").appendingPathComponent(collection.id)
             datasets.append(url)
         })
+        client.get(with: sink)
         return promise.futureResult
     }
 
@@ -35,7 +36,7 @@ class DCATController {
         
         let promise = req.eventLoop.newPromise(of: Dataset.self)
         let id = try req.parameters.next(String.self)
-        client.get(id: id, with: Subscribers.Sink<BiobankCollection, Error>(receiveCompletion: {(_) in}) {
+        let sink = AnySubscriber(Subscribers.Sink<BiobankCollection, Error>(receiveCompletion: {(_) in}) {
             (collection) in
             let id = self.directoryURL.appendingPathComponent("/api/v2/eu_bbmri_eric_collections").appendingPathComponent(collection.id)
             var themes = [Theme]()
@@ -54,6 +55,7 @@ class DCATController {
             let dataset = Dataset(id: id, name: collection.name, theme: themes, publisher: publisher, numberOfPatients: numberOfPatients)
             promise.succeed(result: dataset)
         })
+        client.get(id: id, with: sink)
         return promise.futureResult
     }
 

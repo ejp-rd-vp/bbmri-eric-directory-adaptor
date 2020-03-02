@@ -8,9 +8,8 @@
 import Foundation
 import MolgenisClient
 
-struct BiobankCollection: Entity {
+struct BiobankCollection: EntityResponse {
     static var _entityName = "eu_bbmri_eric_collections"
-    
     var _id: String { id }
     var _label: String { name }
     

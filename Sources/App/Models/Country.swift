@@ -8,11 +8,9 @@
 import Foundation
 import MolgenisClient
 
-struct Country: Entity {
+struct Country: EntityResponse {
     static var _entityName: String = "eu_bbmri_eric_countries"
-    
-    var _id: String { id }
-    
+    var _id: String { id }    
     var _label: String { name }
     
     let name: String

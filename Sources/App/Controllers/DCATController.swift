@@ -1,14 +1,8 @@
-//
-//  DCATController.swift
-//  App
-//
-//  Created by David van Enckevort on 01/08/2019.
-//
-
 import Foundation
 import Vapor
 import MolgenisClient
 import OpenCombine
+import RSQL
 
 class DCATController {
     func catalog(_ req: Request) throws -> Vapor.Future<Catalog> {
@@ -28,7 +22,11 @@ class DCATController {
             let url = self.localURL.appendingPathComponent("dataset").appendingPathComponent(collection.id)
             datasets.append(url)
         })
-        client.get(with: sink)
+        do {
+            try client.get(with: sink, filter: Predicate.equal(subject: "type", object: "RD"))
+        } catch {
+            promise.fail(error: error)
+        }
         return promise.futureResult
     }
 

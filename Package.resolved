@@ -50,9 +50,9 @@
         "package": "MolgenisClient",
         "repositoryURL": "https://github.com/esthervanenckevort/MolgenisClientSwift.git",
         "state": {
-          "branch": "master",
-          "revision": "4022af3f0dc7a8dee6190a61aac8ec49acb10cd2",
-          "version": null
+          "branch": null,
+          "revision": "49174bb77bcf7c6b9687cfaf630e7adb61cd467c",
+          "version": "0.1.0"
         }
       },
       {
@@ -124,6 +124,15 @@
         "state": {
           "branch": null,
           "revision": "37760e9a52030bb9011972c5213c3350fa9d41fd",
+          "version": "1.0.0"
+        }
+      },
+      {
+        "package": "RSQL",
+        "repositoryURL": "https://github.com/esthervanenckevort/swiftrsql.git",
+        "state": {
+          "branch": null,
+          "revision": "9489659552485b54127c9aa9281744712e808618",
           "version": "1.0.0"
         }
       },

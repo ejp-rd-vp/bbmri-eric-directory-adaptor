@@ -1,8 +1,8 @@
-FROM swift
+FROM swift:5.2
 WORKDIR /app
 ADD . ./
 RUN apt-get update
-RUN apt-get install libssl-dev zlib1g-dev
+RUN apt-get install -y libssl-dev zlib1g-dev
 RUN swift package clean
 RUN swift build -c release
 RUN mkdir /app/bin

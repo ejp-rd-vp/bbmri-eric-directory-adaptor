@@ -15,8 +15,8 @@
         "repositoryURL": "https://github.com/vapor/core.git",
         "state": {
           "branch": null,
-          "revision": "10d33362a47fab03a067e78fb0791341d9c634fa",
-          "version": "3.9.3"
+          "revision": "1782c550512dc5a43d0bca405e28fc386d932bbf",
+          "version": "3.10.0"
         }
       },
       {
@@ -38,6 +38,15 @@
         }
       },
       {
+        "package": "EJPRDMetadata",
+        "repositoryURL": "https://github.com/ejp-rd-vp/ejp-rd-metadata-swift.git",
+        "state": {
+          "branch": null,
+          "revision": "c5b381ce92aa98c5aa6bb11b420932e659aa6ba3",
+          "version": "0.1.2"
+        }
+      },
+      {
         "package": "HTTP",
         "repositoryURL": "https://github.com/vapor/http.git",
         "state": {
@@ -51,8 +60,8 @@
         "repositoryURL": "https://github.com/esthervanenckevort/MolgenisClientSwift.git",
         "state": {
           "branch": null,
-          "revision": "49174bb77bcf7c6b9687cfaf630e7adb61cd467c",
-          "version": "0.1.0"
+          "revision": "0fcc68c8135170863876981aa5229152e9ea0786",
+          "version": "0.1.1"
         }
       },
       {
@@ -60,8 +69,8 @@
         "repositoryURL": "https://github.com/vapor/multipart.git",
         "state": {
           "branch": null,
-          "revision": "f063180d0b84832accd33194e06ed3c41f8609ac",
-          "version": "3.1.1"
+          "revision": "a7e0db512ff7eee7cd91d0a69dfeeec36f74d604",
+          "version": "3.1.2"
         }
       },
       {
@@ -141,8 +150,8 @@
         "repositoryURL": "https://github.com/vapor/template-kit.git",
         "state": {
           "branch": null,
-          "revision": "51405c83e95e8adb09565278a5e9b959c605e56c",
-          "version": "1.4.0"
+          "revision": "4370aa99c01fc19cc8272b67bf7204b2d2063680",
+          "version": "1.5.0"
         }
       },
       {

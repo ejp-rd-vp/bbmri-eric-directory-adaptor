@@ -13,9 +13,10 @@ let package = Package(
         .package(url: "https://github.com/esthervanenckevort/MolgenisClientSwift.git", from: "0.1.0"),
         .package(url: "https://github.com/broadwaylamb/OpenCombine.git", from: "0.8.0"),
         .package(url: "https://github.com/esthervanenckevort/swiftrsql.git", from: "1.0.0"),
+        .package(url: "https://github.com/ejp-rd-vp/ejp-rd-metadata-swift.git", from: "0.1.0")
     ],
     targets: [
-        .target(name: "App", dependencies: ["Vapor", "MolgenisClient", "OpenCombine", "RSQL"]),
+        .target(name: "App", dependencies: ["Vapor", "MolgenisClient", "OpenCombine", "RSQL", "EJPRDMetadata"]),
         .target(name: "Run", dependencies: ["App"]),
         .testTarget(name: "AppTests", dependencies: ["App"])
     ]

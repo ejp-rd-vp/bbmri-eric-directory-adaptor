@@ -3,6 +3,7 @@ import Vapor
 import MolgenisClient
 import OpenCombine
 import RSQL
+import EJPRDMetadata
 
 class DCATController {
     func catalog(_ req: Request) throws -> Vapor.Future<Catalog> {
